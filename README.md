@@ -1,24 +1,24 @@
-= zs_thinging
+# zs_thinging
 
 NISHI, Takao <zophos@ni.aist.go.jp>
 
 Zhang-Suen Thinnning (Skeletonize) Algorithm for OpenCV
 based on ImageJ [BinaryProcessor.java](https://imagej.nih.gov/ij/source/ij/process/BinaryProcessor.java)
 
-== Build
+## Build
 
 Require OpenCV2.0 or higher.
 See test-zh_thinning.cc and Makefile for detail.
 
-== References
+## References
 
-T. Y. Zhang and C. Y. Suen
-A Fast Parallel Algorithm for Thinning Digital Patterns 
+T. Y. Zhang and C. Y. Suen,
+``A Fast Parallel Algorithm for Thinning Digital Patterns'',
 CACM 27(3):236--239, 1984
 http://agcggs680.pbworks.com/f/Zhan-Suen_algorithm.pdf
 
 
-== License
+## License
 
 Copyright (C) 2017  NISHI, Takao <zophos@ni.aist.go.jp>
 All rights reserved.
