@@ -1,6 +1,6 @@
 // zs_thinging.cc - Zhang-Suen Thinnning Algorithm for OpenCV
 //
-// Time-stamp: <2017-06-23 13:38:38 zophos>
+// Time-stamp: <2017-06-23 13:50:19 zophos>
 //
 // based on ImageJ BinaryProcessor.java
 // https://imagej.nih.gov/ij/source/ij/process/BinaryProcessor.java
@@ -101,7 +101,7 @@ static int _thin(cv::Mat &src,
     //
     // choose remove flag table and mask by stage and pass number
     //
-    const uchar *rflags=REMOVE_FLAGS[stage?1:0]; // 1st.: 0 / 2nd.: 1
+    const uchar * const rflags=REMOVE_FLAGS[stage?1:0]; // 1st.: 0 / 2nd.: 1
     const uchar rmask=(pass&1)?2:1; // even (1st.): 1 / odd (2nd.): 2
 
     //
