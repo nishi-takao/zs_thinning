@@ -1,6 +1,6 @@
-// zs_thinging.h - Thinnning Routine for OpenCV
+// zs_thinging.h - Zhang-Suen Thinnning Algorithm for OpenCV
 //
-// Time-stamp: <2017-06-23 09:12:29 zophos>
+// Time-stamp: <2017-06-23 09:37:02 zophos>
 //
 // based on ImageJ BinaryProcessor.java
 // https://imagej.nih.gov/ij/source/ij/process/BinaryProcessor.java
