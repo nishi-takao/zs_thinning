@@ -1,6 +1,6 @@
 // zs_thinging.cc - Zhang-Suen Thinnning Algorithm for OpenCV
 //
-// Time-stamp: <2017-06-23 09:16:31 zophos>
+// Time-stamp: <2017-06-23 13:38:38 zophos>
 //
 // based on ImageJ BinaryProcessor.java
 // https://imagej.nih.gov/ij/source/ij/process/BinaryProcessor.java
@@ -75,7 +75,7 @@ static int _thin(cv::Mat &src,
     // the table is available at
     // "http://imagej.nih.gov/ij/images/skeletonize-table.gif".
     //
-    static const uchar PIXEL_CONDITION[][256]={
+    static const uchar REMOVE_FLAGS[][256]={
         {
             0,0,0,0,0,0,1,3,0,0,3,1,1,0,1,3,0,0,0,0,0,0,0,0,0,0,2,0,3,0,3,3,
             0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,3,0,2,2,
@@ -99,10 +99,10 @@ static int _thin(cv::Mat &src,
     };
 
     //
-    // choose condition mask and table by pass # and remove_stuck flag
+    // choose remove flag table and mask by stage and pass number
     //
-    const uchar cmask=(pass&1)?2:1; // even (1st.): 1 / odd (2nd.): 2
-    const uchar *cond=PIXEL_CONDITION[stage?1:0]; // 1st.: 0 / 2nd.: 1
+    const uchar *rflags=REMOVE_FLAGS[stage?1:0]; // 1st.: 0 / 2nd.: 1
+    const uchar rmask=(pass&1)?2:1; // even (1st.): 1 / odd (2nd.): 2
 
     //
     // clear dst buffer with bgcolor
@@ -184,7 +184,7 @@ static int _thin(cv::Mat &src,
 
 
             if(p5!=bgColor){
-                if(cond[index]&cmask)
+                if(rflags[index]&rmask)
                     pixelsRemoved++;
                 else
                     dst.at<T>(cy,cx)=p5;
